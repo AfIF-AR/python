@@ -1,0 +1,30 @@
+import random
+import replit
+import art
+
+def guess_numer():
+  print(art.logo)
+  guessNum = random.randint(1, 100)
+  attemptLeft = 5
+  while attemptLeft > 0:
+    usrGuess = int(input("Guess a Number: "))
+    if guessNum == usrGuess:
+      print("You Guessed it!\nWOW Man! How did you do that!!!\nYou Win!\n")
+    else:
+      attemptLeft -= 1
+      if guessNum > usrGuess:
+        print("You Guessed Too Low")
+      else:
+        print("You Guessed Too High")
+      print(f"You Have {attemptLeft} Attempts Left.\n")
+  if attemptLeft == 0:
+    print("You Don't have any Attempts Left...\nBad Luck.\nYou Lose\n")
+  play_again()
+def play_again():
+  usrChoice = input("Do You Want to Play Again?\nIf Yes Press 'y', and Any Key to Exit")
+  if usrChoice == 'y':
+    replit.clear()
+    guess_numer()
+  else:
+    return 0
+guess_numer()
